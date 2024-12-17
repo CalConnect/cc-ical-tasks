@@ -19,7 +19,7 @@
 :city: Bonn
 :code: 53113
 :country: Germany
-:contibutor-uri: http://www.dhl.com
+:contributor-uri: http://www.dhl.com
 :email: aapthorp@theiet.org
 :fullname_2: Cyrus Daboo
 :lastname_2: Daboo
@@ -30,7 +30,7 @@
 :state_2: CA
 :code_2: 95014
 :country_2: United States of America
-:contibutor-uri_2: https://www.apple.com
+:contributor-uri_2: https://www.apple.com
 :email_2: cyrus@daboo.name
 :fullname_3: Michael Douglass
 :lastname_3: Douglass
@@ -41,7 +41,7 @@
 :state_3: NY
 :code_3: 12180
 :country_3: United States of America
-:contibutor-uri_3: https://bcs.com/
+:contributor-uri_3: https://bcs.com/
 :email_3: mdouglass@bedework.com
 :docfile: draft-apthorp-ical-tasks.adoc
 :mn-document-class: ietf
