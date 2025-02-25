@@ -12,15 +12,15 @@
        This document updates and defines extensions to VTODO to provide improved status tracking, scheduling and specification of tasks to allow its use in other contexts, such as process control and project management. 
        It also defines how Calendaring Extensions to WebDAV (CalDAV) (RFC 4791) servers can be extended to support certain automated task management behaviours. 
     " name="description">
-<meta content="xml2rfc 3.24.0" name="generator">
-<meta content="draft-ietf-calext-ical-tasks-11" name="ietf.draft">
+<meta content="xml2rfc 3.25.0" name="generator">
+<meta content="draft-ietf-calext-ical-tasks-12" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.24.0
+  xml2rfc 3.25.0
     Python 3.8.10
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
-    Jinja2 3.1.4
+    Jinja2 3.1.5
     lxml 5.3.0
     platformdirs 4.3.6
     pycountry 24.6.1
@@ -29,7 +29,7 @@
     setuptools 44.0.0
     wcwidth 0.2.13
 -->
-<link href="/home/mike/IdeaProjects/PUBLIC_DRAFTS/ical-tasks/sources/draft-ietf-calext-ical-tasks.rfc.xml" rel="alternate" type="application/rfc+xml">
+<link href="/home/mike/IdeaProjects/cc-ical-tasks/sources/draft-ietf-calext-ical-tasks.rfc.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">/*
 
@@ -1212,11 +1212,11 @@ li > p:last-of-type:only-child {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Task Extensions to iCalendar</td>
-<td class="right">December 2024</td>
+<td class="right">February 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Apthorp &amp; Douglass</td>
-<td class="center">Expires 4 June 2025</td>
+<td class="center">Expires 28 August 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1226,7 +1226,7 @@ li > p:last-of-type:only-child {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">calext</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-ietf-calext-ical-tasks-11</dd>
+<dd class="internet-draft">draft-ietf-calext-ical-tasks-12</dd>
 <dt class="label-">:</dt>
 <dd></dd>
 <dt class="label-updates">Updates:</dt>
@@ -1234,12 +1234,12 @@ li > p:last-of-type:only-child {
 <a href="https://www.rfc-editor.org/rfc/rfcRFC5545" class="eref">RFC5545</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-12-01" class="published">1 December 2024</time>
+<time datetime="2025-02-24" class="published">24 February 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-06-04">4 June 2025</time></dd>
+<dd class="expires"><time datetime="2025-08-28">28 August 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1287,7 +1287,7 @@ li > p:last-of-type:only-child {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 4 June 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 28 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1296,7 +1296,7 @@ li > p:last-of-type:only-child {
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2024 IETF Trust and the persons identified as the
+            Copyright (c) 2025 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1582,11 +1582,15 @@ li > p:last-of-type:only-child {
 </div>
 <div id="_f55ca4e7-ddf7-e017-6204-f224e6884456">
 <ol start="1" type="1" class="normal type-1" id="section-1.1-10.8.2">
-<li id="section-1.1-10.8.2.1">Software with which the calendar user communicates with a calendar service or local calendar store to access calendar information.<a href="#section-1.1-10.8.2.1" class="pilcrow">¶</a>
-</li>
-              <li id="section-1.1-10.8.2.2">Software that gathers calendar data on the Calendar User's behalf.<a href="#section-1.1-10.8.2.2" class="pilcrow">¶</a>
-</li>
-            </ol>
+<li id="section-1.1-10.8.2.1">
+<div id="_a00f01e5-f448-4e95-ad2f-bec2c34536ea">Software with which the calendar user communicates with a calendar service or local calendar store to access calendar information.<a href="#_a00f01e5-f448-4e95-ad2f-bec2c34536ea" class="pilcrow">¶</a>
+</div>
+              </li>
+<li id="section-1.1-10.8.2.2">
+<div id="_010586cd-11c1-4884-ab3e-794d114beb51">Software that gathers calendar data on the Calendar User's behalf.<a href="#_010586cd-11c1-4884-ab3e-794d114beb51" class="pilcrow">¶</a>
+</div>
+            </li>
+</ol>
 </div>
 </dd>
           <dd class="break"></dd>
@@ -1757,11 +1761,15 @@ li > p:last-of-type:only-child {
 </div>
 <div id="_e07c5881-b03b-0e3b-82b1-cca2a7a2520f">
 <ol start="1" type="a" class="normal type-a" id="section-3-2.14.2">
-<li id="section-3-2.14.2.1">Delegation to a named actor or group of actors<a href="#section-3-2.14.2.1" class="pilcrow">¶</a>
-</li>
-            <li id="section-3-2.14.2.2">Advertising to a pool of actors for self-selection<a href="#section-3-2.14.2.2" class="pilcrow">¶</a>
-</li>
-          </ol>
+<li id="section-3-2.14.2.1">
+<div id="_19c5285f-ae61-44b7-a140-425c03a812c3">Delegation to a named actor or group of actors<a href="#_19c5285f-ae61-44b7-a140-425c03a812c3" class="pilcrow">¶</a>
+</div>
+            </li>
+<li id="section-3-2.14.2.2">
+<div id="_897870b7-169d-415e-b89b-471bda421fc8">Advertising to a pool of actors for self-selection<a href="#_897870b7-169d-415e-b89b-471bda421fc8" class="pilcrow">¶</a>
+</div>
+          </li>
+</ol>
 </div>
 <div id="_4f670428-991a-82c3-d220-27a14bfde9cd">
 <p id="section-3-2.14.3">In either case the assignment may be made based on a variety of criteria including, name, availability, skills, capacity, etc.<a href="#section-3-2.14.3" class="pilcrow">¶</a></p>
@@ -1996,8 +2004,8 @@ REFID:1234567890</pre><a href="#section-6.2-5" class="pilcrow">¶</a>
         <h3 id="name-milestones">
 <a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-milestones" class="section-name selfRef">Milestones</a>
         </h3>
-<div id="_f2276ca1-c069-b193-a9a7-725620a1e7d5">
-<p id="section-7.2-1">A task that has intermediary deadlines (i.e., milestones) SHOULD be expressed by child "VTODO" calendar components (i.e., sub-tasks associated with each of the milestones) in conjunction with the "RELATED-TO" property to relate the parent and child tasks.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+<div id="_eb476f31-33b8-4150-5d1f-433953500ff9">
+<p id="section-7.2-1">A task that has intermediary deadlines (i.e., milestones) MUST be expressed by child "VTODO" calendar components (i.e., sub-tasks associated with each of the milestones) in conjunction with the "RELATED-TO" property to relate the parent and child tasks.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
 </div>
 </section>
 </div>
@@ -2217,20 +2225,37 @@ partprop =/ percent / ; OPTIONAL but MUST NOT occur more than once.
 <div id="_2e0738bc-dd0c-89e0-b869-a07959a0adb7">
 <p id="section-11.1-1">Participant status parameter type values are defined in <span><a class="relref">Section 3.2.12</a> of [<a href="#RFC5545" class="cite xref">RFC5545</a>]</span>.  This specification redefines that type to include the new value FAILED for "VTODO" calendar components.<a href="#section-11.1-1" class="pilcrow">¶</a></p>
 </div>
-<span class="break"></span><div id="_e29cb84e-6b91-07ce-6201-5208de238091">
+<span class="break"></span><div id="_f9eccd2a-bd44-8ddf-2422-a706610363f5">
 <dl class="dlParallel" id="section-11.1-2">
           <dt id="section-11.1-2.1">Format Definition</dt>
           <dd style="margin-left: 1.5em" id="section-11.1-2.2">
-            <div id="_dd67fb97-de6b-df70-f02e-9240cee57066">
-<p id="section-11.1-2.2.1">This property parameter is extended by the following notation:<a href="#section-11.1-2.2.1" class="pilcrow">¶</a></p>
+            <div id="_f2b1ba05-3bef-7a5f-6b0e-0bfb44750e96">
+<p id="section-11.1-2.2.1">This property parameter is redefined by the following notation which adds the value "FAILED":<a href="#section-11.1-2.2.1" class="pilcrow">¶</a></p>
 </div>
 </dd>
         <dd class="break"></dd>
 </dl>
 </div>
-<div id="_aecd9f5a-268d-0818-14b0-1befae70f5e6">
+<div id="_89777100-5c42-aa53-c43d-b788c2495ef9">
 <div class="lang-bnf sourcecode" id="section-11.1-3">
-<pre>partstat-todo    =/ *("FAILED")  ; To-do cannot be completed</pre><a href="#section-11.1-3" class="pilcrow">¶</a>
+<pre>       partstat-todo    = ("NEEDS-ACTION"    ; To-do needs action
+                        / "ACCEPTED"         ; To-do accepted
+                        / "DECLINED"         ; To-do declined
+                        / "TENTATIVE"        ; To-do tentatively
+                                             ; accepted
+                        / "DELEGATED"        ; To-do delegated
+                        / "COMPLETED"        ; To-do completed
+                                             ; COMPLETED property has
+                                             ; DATE-TIME completed
+                        / "IN-PROCESS"       ; To-do in process of
+                                             ; being completed
+                        / "FAILED"           ; To-do cannot be
+                                             ; completed
+                        / x-name             ; Experimental status
+                        / iana-token)        ; Other IANA-registered
+                                             ; status
+       ; These are the participation statuses for a "VTODO".
+       ; Default is NEEDS-ACTION.</pre><a href="#section-11.1-3" class="pilcrow">¶</a>
 </div>
 </div>
 <span class="break"></span><div id="_538f2724-bf2c-f04d-6c85-2dc2528ac441">
@@ -2314,12 +2339,12 @@ partprop =/ percent / ; OPTIONAL but MUST NOT occur more than once.
 durparam      = *(";" other-param)</pre><a href="#section-12.1-2" class="pilcrow">¶</a>
 </div>
 </div>
-<span class="break"></span><div id="_f93b641d-a9ed-3a99-da43-1b2824fe63e0">
+<span class="break"></span><div id="_c642d48b-9f24-a54a-7ea4-ff223751d3bb">
 <dl class="dlParallel" id="section-12.1-3">
           <dt id="section-12.1-3.1">Description</dt>
           <dd style="margin-left: 1.5em" id="section-12.1-3.2">
-            <div id="_9c03c630-b6d4-e0e5-54ce-398c26cdbad0">
-<p id="section-12.1-3.2.1">In a "VTODO" calendar component the property MAY be used to specify the estimated duration for the to-do, with or without an explicit time window in which the event should be started and completed. When present, "DTSTART" and "DUE"/"DURATION" properties represent the window in which the task can be performed. The "ESTIMATED-DURATION" property SHOULD be passed from the organizer to the "Attendee" in iTIP  <span>[<a href="#RFC5546" class="cite xref">RFC5546</a>]</span> messages.<a href="#section-12.1-3.2.1" class="pilcrow">¶</a></p>
+            <div id="_f2d77228-b033-d593-2577-053873f4d325">
+<p id="section-12.1-3.2.1">In a "VTODO" calendar component the property MAY be used to specify the estimated duration for the to-do, with or without an explicit time window in which the event should be started and completed. When present, "DTSTART" and "DUE" or "DTSTART" and "DURATION" properties represent the window in which the task can be performed. The "ESTIMATED-DURATION" property SHOULD be passed from the organizer to the "Attendee" in iTIP  <span>[<a href="#RFC5546" class="cite xref">RFC5546</a>]</span> messages.<a href="#section-12.1-3.2.1" class="pilcrow">¶</a></p>
 </div>
 </dd>
           <dd class="break"></dd>
@@ -2624,17 +2649,21 @@ taskmodeparam      = *(";" other-param)</pre><a href="#section-12.4-2" class="pi
 </div>
 <div id="_77760277-3988-33ea-8272-1580346df53f">
 <ol start="1" type="1" class="normal type-1" id="section-12.4-5.2.2">
-<li id="section-12.4-5.2.2.1">the PARTSTAT of one "ATTENDEE" property is set to FAILED; or<a href="#section-12.4-5.2.2.1" class="pilcrow">¶</a>
-</li>
-              <li id="section-12.4-5.2.2.2">
+<li id="section-12.4-5.2.2.1">
+<div id="_d29a613d-dcdb-4a3d-a259-61e34a816a5b">the PARTSTAT of one "ATTENDEE" property is set to FAILED; or<a href="#_d29a613d-dcdb-4a3d-a259-61e34a816a5b" class="pilcrow">¶</a>
+</div>
+              </li>
+<li id="section-12.4-5.2.2.2">
+<div id="_15e94599-6c62-442f-b710-c86a04a79f77">
                 <div id="_74e00253-9f5f-b036-0093-c88e4cdaf4d9">
 <p id="section-12.4-5.2.2.2.1">the current time is past the effective due date of the component and the task has not yet been completed. The effective due date is either the "DUE" property value or the combination of the "DTSTART" and "DURATION" property values.<a href="#section-12.4-5.2.2.2.1" class="pilcrow">¶</a></p>
 </div>
 <div id="_bb38a412-4650-3193-848a-7f9b3d55450a">
 <p id="section-12.4-5.2.2.2.2">Completing the task MUST be handled by a client.<a href="#section-12.4-5.2.2.2.2" class="pilcrow">¶</a></p>
 </div>
-</li>
-            </ol>
+</div>
+            </li>
+</ol>
 </div>
 </dd>
         <dd class="break"></dd>
@@ -2756,23 +2785,27 @@ TASK-MODE:SERVER</pre><a href="#section-12.4-9" class="pilcrow">¶</a>
 <div id="_dcdcea6a-a8fc-2089-6bd3-8ceb38fb5e8a">
 <p id="section-13.2-1">The Status property is defined in <span><a class="relref">Section 3.8.1.11</a> of [<a href="#RFC5545" class="cite xref">RFC5545</a>]</span>. This specification extends that property to include new values associated with "VTODO" calendar components (See Appendix A for examples of the task state lifecycle).<a href="#section-13.2-1" class="pilcrow">¶</a></p>
 </div>
-<span class="break"></span><div id="_932f7786-45a5-5919-d2ef-64e1c7cb26b8">
+<span class="break"></span><div id="_1655c8cd-42b8-a7ce-83a5-65ed72435560">
 <dl class="dlParallel" id="section-13.2-2">
           <dt id="section-13.2-2.1">Format Definition</dt>
           <dd style="margin-left: 1.5em" id="section-13.2-2.2">
-            <div id="_b5d2f512-6d39-8bc9-f741-09b5a84f0376">
-<p id="section-13.2-2.2.1">The "STATUS" property parameter list is augmented as follows:<a href="#section-13.2-2.2.1" class="pilcrow">¶</a></p>
+            <div id="_ad4a156a-d8fd-44a3-6be8-b5ba3214d07a">
+<p id="section-13.2-2.2.1">The "STATUS" property parameter list for tasks is redefined by the addition of the values "PENDING" and "FAILED":<a href="#section-13.2-2.2.1" class="pilcrow">¶</a></p>
 </div>
 </dd>
         <dd class="break"></dd>
 </dl>
 </div>
-<div id="_757a594b-919d-0a68-5973-619dd2cd1f5a">
+<div id="_32b5b670-c0e6-d88d-2872-fc327933d02f">
 <div class="lang-bnf sourcecode" id="section-13.2-3">
-<pre>statvalue-todo = / "PENDING"    ;Indicates a to-do has been
-                                ;created and accepted, but has
-                                ; not yet started.
-                / "FAILED"      ;Indicates to-do has failed.
+<pre>statvalue-todo  = "NEEDS-ACTION" ;Indicates to-do needs action.
+                / "COMPLETED"    ;Indicates to-do completed.
+                / "IN-PROCESS"   ;Indicates to-do in process of.
+                / "CANCELLED"    ;Indicates to-do was cancelled.
+                / "PENDING"      ;Indicates a to-do has been
+                                 ;created and accepted, but has
+                                 ; not yet started.
+                / "FAILED"       ;Indicates to-do has failed.
 ;Extended status values for "VTODO" calendar component.</pre><a href="#section-13.2-3" class="pilcrow">¶</a>
 </div>
 </div>
@@ -2916,8 +2949,8 @@ END:VSTATUS</pre><a href="#section-14.1-7" class="pilcrow">¶</a>
 <div id="_600a310f-4c7f-912f-9ef9-2add9c463918">
 <p id="section-15-3">Clients MUST NOT attempt to store iCalendar data containing "TASK-MODE" elements if the CALDAV:supported-task-mode-set WebDAV property is not advertised by the server.<a href="#section-15-3" class="pilcrow">¶</a></p>
 </div>
-<div id="_8d1f990e-ac9f-6d37-0ae6-64da689ed35a">
-<p id="section-15-4">The server SHOULD return an HTTP 403 response with a DAV:error element containing a CALDAV:supported-task-mode XML element, if a client attempts to store iCalendar data with an "TASK-MODE" element value not supported by the server.<a href="#section-15-4" class="pilcrow">¶</a></p>
+<div id="_b4137032-49eb-39a4-77bc-a773ebe39848">
+<p id="section-15-4">The server MUST return an HTTP 403 response with a DAV:error element containing a CALDAV:supported-task-mode XML element, if a client attempts to store iCalendar data with an "TASK-MODE" element value not supported by the server.<a href="#section-15-4" class="pilcrow">¶</a></p>
 </div>
 <div id="_44074c20-c746-ac59-47d3-c091bdf3c336">
 <p id="section-15-5">It is possible for a "TASK-MODE" value to be present in calendar data on the server being accessed by a client that does not support the "TASK-MODE" property. It is expected that existing clients, unaware of "TASK-MODE", will fail gracefully by ignoring the calendar property.<a href="#section-15-5" class="pilcrow">¶</a></p>
@@ -3278,7 +3311,7 @@ uppercase preferred --&gt;</pre><a href="#section-15.1-2" class="pilcrow">¶</a>
 <a href="#section-17.1.4" class="section-number selfRef">17.1.4. </a><a href="#name-participation-statuses-regi" class="section-name selfRef">Participation Statuses registry</a>
           </h4>
 <div id="_06ea47a1-a0ea-d83a-e37a-89a537a829bf">
-<p id="section-17.1.4-1">The following table has been used to update the Participation Statuses registry defined in <span><a class="relref">Section 8.3.7</a> of [<a href="#RFC5545" class="cite xref">RFC5545</a>]</span> and located here: <span><a href="https://www.iana.org/assignments/icalendar">https://www.iana.org/assignments/icalendar</a></span>&gt;<a href="#section-17.1.4-1" class="pilcrow">¶</a></p>
+<p id="section-17.1.4-1">The following table has been used to update the Participation Statuses registry defined in <span><a class="relref">Section 8.3.7</a> of [<a href="#RFC5545" class="cite xref">RFC5545</a>]</span> and located here: &lt;<span><a href="https://www.iana.org/assignments/icalendar">https://www.iana.org/assignments/icalendar</a></span>&gt;<a href="#section-17.1.4-1" class="pilcrow">¶</a></p>
 </div>
 <span id="name-participation-statuses-regis"></span><div id="_7e813f8a-8cef-ea9b-8133-fba5c29d35ce">
 <table class="center" id="table-4">
@@ -3322,7 +3355,7 @@ uppercase preferred --&gt;</pre><a href="#section-15.1-2" class="pilcrow">¶</a>
 <a href="#section-17.1.5" class="section-number selfRef">17.1.5. </a><a href="#name-components-registry" class="section-name selfRef">Components Registry</a>
           </h4>
 <div id="_ed95c00d-d4df-2c9d-acd4-b1c4a3af7235">
-<p id="section-17.1.5-1">The following table has been used to update the Components registry defined in  <span><a class="relref">Section 8.3.1</a> of [<a href="#RFC5545" class="cite xref">RFC5545</a>]</span> and located here: <span><a href="https://www.iana.org/assignments/icalendar">https://www.iana.org/assignments/icalendar</a></span>&gt;.<a href="#section-17.1.5-1" class="pilcrow">¶</a></p>
+<p id="section-17.1.5-1">The following table has been used to update the Components registry defined in  <span><a class="relref">Section 8.3.1</a> of [<a href="#RFC5545" class="cite xref">RFC5545</a>]</span> and located here: &lt;<span><a href="https://www.iana.org/assignments/icalendar">https://www.iana.org/assignments/icalendar</a></span>&gt;.<a href="#section-17.1.5-1" class="pilcrow">¶</a></p>
 </div>
 <span id="name-updated-components-registry"></span><div id="_b293ebda-88d9-4453-6807-4771886854a0">
 <table class="center" id="table-5">
@@ -3366,7 +3399,7 @@ uppercase preferred --&gt;</pre><a href="#section-15.1-2" class="pilcrow">¶</a>
 <a href="#section-17.1.6" class="section-number selfRef">17.1.6. </a><a href="#name-properties-registry" class="section-name selfRef">Properties registry</a>
           </h4>
 <div id="_894022b8-5fd6-f66d-0b47-62e614db316d">
-<p id="section-17.1.6-1">The following table has been used to update the Properties registry defined in  <span><a class="relref">Section 8.3.2</a> of [<a href="#RFC5545" class="cite xref">RFC5545</a>]</span> and located here: <span><a href="https://www.iana.org/assignments/icalendar">https://www.iana.org/assignments/icalendar</a></span>&gt;.<a href="#section-17.1.6-1" class="pilcrow">¶</a></p>
+<p id="section-17.1.6-1">The following table has been used to update the Properties registry defined in  <span><a class="relref">Section 8.3.2</a> of [<a href="#RFC5545" class="cite xref">RFC5545</a>]</span> and located here: &lt;<span><a href="https://www.iana.org/assignments/icalendar">https://www.iana.org/assignments/icalendar</a></span>&gt;.<a href="#section-17.1.6-1" class="pilcrow">¶</a></p>
 </div>
 <span id="name-updated-properties-registry"></span><div id="_33a27ee0-890c-2291-1f24-7144df43a153">
 <table class="center" id="table-6">
@@ -3536,7 +3569,7 @@ uppercase preferred --&gt;</pre><a href="#section-15.1-2" class="pilcrow">¶</a>
 <dd class="break"></dd>
 <dt id="draft-ietf-calext-subscription-upgrade">[draft-ietf-calext-subscription-upgrade]</dt>
     <dd>
-<span class="refAuthor">Douglass, M.</span>, <span class="refTitle">"draft-ietf-calext-subscription-upgrade"</span>, <span class="refContent">draft-ietf-calext-subscription-upgrade</span>, <span>&lt;<a href="https://datatracker.ietf.org/doc/draft-ietf-calext-subscription-upgrade/">https://datatracker.ietf.org/doc/draft-ietf-calext-subscription-upgrade/</a>&gt;</span>. </dd>
+<span class="refAuthor">Douglass, M.</span>, <span class="refTitle">"draft-ietf-calext-subscription-upgrade"</span>, <span class="refContent">IETF draft-ietf-calext-subscription-upgrade</span>, <span>&lt;<a href="https://datatracker.ietf.org/doc/draft-ietf-calext-subscription-upgrade/">https://datatracker.ietf.org/doc/draft-ietf-calext-subscription-upgrade/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -3553,7 +3586,7 @@ uppercase preferred --&gt;</pre><a href="#section-15.1-2" class="pilcrow">¶</a>
 <dd class="break"></dd>
 <dt id="TARCH">[TARCH]</dt>
       <dd>
-<span class="refAuthor">Apthorp, A.</span>, <span class="refAuthor">Daboo, C.</span>, and <span class="refAuthor">M. Douglass</span>, <span class="refTitle">"CalConnect, Task Architecture V1.0"</span>, <span class="refContent">(CalConnect Task Architecture V1.0</span>, <span>&lt;<a href="https://www.calconnect.org/architectures/Task%20Architecture%201.0.pdf">https://www.calconnect.org/architectures/Task%20Architecture%201.0.pdf</a>&gt;</span>. </dd>
+<span class="refAuthor">Apthorp, A.</span>, <span class="refAuthor">Daboo, C.</span>, and <span class="refAuthor">M. Douglass</span>, <span class="refTitle">"CalConnect, Task Architecture V1.0"</span>, <span class="refContent">(CalConnect Task Architecture V1.0</span>, <span>&lt;<a href="https://www.calconnect.org/architectures/Task%20Architecture%201.0.pdf">https://www.calconnect.org/architectures/Task%20Architecture%201.0.pdf</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="WfRP">[WfRP]</dt>
     <dd>

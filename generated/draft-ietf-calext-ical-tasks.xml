@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ietf-standard xmlns="https://www.metanorma.org/ns/ietf" type="semantic" version="3.4.0" schema-version="v1.4.0">
+<ietf-standard xmlns="https://www.metanorma.org/ns/ietf" type="semantic" version="3.4.3" schema-version="v1.4.1">
 <bibdata type="standard">
 <title language="en" format="text/plain" type="main">Task Extensions to iCalendar</title>
-<docidentifier primary="true">draft-ietf-calext-ical-tasks-11</docidentifier><docnumber>draft-ietf-calext-ical-tasks-11</docnumber><contributor><role type="author"/><person>
+<docidentifier primary="true">draft-ietf-calext-ical-tasks-12</docidentifier><docnumber>draft-ietf-calext-ical-tasks-12</docnumber><contributor><role type="author"/><person>
 <name><completename>Adrian Apthorp</completename></name>
 <affiliation><organization>
 <name>DHL Express</name>
@@ -12,12 +12,12 @@
 <name>Bedework Commercial Services</name>
 <address><street>226 3rd Street</street><city>Troy</city><state>NY</state><country>United States of America</country></address></organization></affiliation><email>mdouglass@bedework.com</email></person></contributor><contributor><role type="publisher"/><organization>
 <name>Internet Engineering Task Force</name>
-<abbreviation>IETF</abbreviation></organization></contributor><version><revision-date>2024-12-01</revision-date></version><language>en</language><script>Latn</script><abstract><p>The Internet Calendaring and Scheduling Core Object Specification (iCalendar) (RFC5545) VTODO calendar component has been seen as the poor relation of VEVENT - useful only for personal reminders and to-do lists.</p>
+<abbreviation>IETF</abbreviation></organization></contributor><version><revision-date>2025-02-24</revision-date></version><language>en</language><script>Latn</script><abstract><p>The Internet Calendaring and Scheduling Core Object Specification (iCalendar) (RFC5545) VTODO calendar component has been seen as the poor relation of VEVENT - useful only for personal reminders and to-do lists.</p>
 
 <p>This document updates and defines extensions to VTODO to provide improved status tracking, scheduling and specification of tasks to allow its use in other contexts, such as process control and project management.</p>
 
 <p>It also defines how Calendaring Extensions to WebDAV (CalDAV) (RFC 4791) servers can be extended to support certain automated task management behaviours.</p>
-</abstract><status><stage>standard</stage></status><copyright><from>2024</from><owner><organization>
+</abstract><status><stage>standard</stage></status><copyright><from>2025</from><owner><organization>
 <name>Internet Engineering Task Force</name>
 <abbreviation>IETF</abbreviation></organization></owner></copyright><relation type="updates"><bibitem>
 <title>--</title>
@@ -105,7 +105,7 @@
 
 <clause id="architecture" inline-header="false" obligation="normative">
 <title>Task Architecture</title>
-<p id="_fb67bf9b-2a59-71ff-564b-26c450671c05">A reference architecture for task calendaring and scheduling is defined in order to identify the key logical elements involved in task management and the interfaces between them to enable interoperability. The logical elements identified here establish an appropriate separation of concerns and clarify the responsibilities of different elements. However, the architecture does not prescribe a binding or packaging of elements, i.e., software systems may be developed where some elements are tightly bound and the interfaces between bound elements are not exposed. The task architecture is also described in  <eref type="inline" bibitemid="TARCH" citeas="(CalConnect Task Architecture V1.0"/>.</p>
+<p id="_fb67bf9b-2a59-71ff-564b-26c450671c05">A reference architecture for task calendaring and scheduling is defined in order to identify the key logical elements involved in task management and the interfaces between them to enable interoperability. The logical elements identified here establish an appropriate separation of concerns and clarify the responsibilities of different elements. However, the architecture does not prescribe a binding or packaging of elements, i.e., software systems may be developed where some elements are tightly bound and the interfaces between bound elements are not exposed. The task architecture is also described in  <eref type="inline" bibitemid="TARCH" citeas="(CalConnect Task Architecture V1.0"/>.</p>
 
 <figure id="_2bad07e9-7d07-cbdb-fa76-b5ac14dacdcd">
 <name>Task architecture diagram</name>
@@ -307,7 +307,7 @@ REFID:1234567890</sourcecode>
 
 <clause id="_milestones" inline-header="false" obligation="normative">
 <title>Milestones</title>
-<p id="_f2276ca1-c069-b193-a9a7-725620a1e7d5">A task that has intermediary deadlines (i.e., milestones) SHOULD be expressed by child "VTODO" calendar components (i.e., sub-tasks associated with each of the milestones) in conjunction with the "RELATED-TO" property to relate the parent and child tasks.</p>
+<p id="_eb476f31-33b8-4150-5d1f-433953500ff9">A task that has intermediary deadlines (i.e., milestones) MUST be expressed by child "VTODO" calendar components (i.e., sub-tasks associated with each of the milestones) in conjunction with the "RELATED-TO" property to relate the parent and child tasks.</p>
 </clause>
 </clause>
 
@@ -452,12 +452,29 @@ partprop =/ percent / ; OPTIONAL but MUST NOT occur more than once.
 <title>Redefined VTODO Participant Status</title>
 <p id="_2e0738bc-dd0c-89e0-b869-a07959a0adb7">Participant status parameter type values are defined in <eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"><localityStack><locality type="section"><referenceFrom>3.2.12</referenceFrom></locality></localityStack></eref>.  This specification redefines that type to include the new value FAILED for "VTODO" calendar components.</p>
 
-<dl id="_e29cb84e-6b91-07ce-6201-5208de238091"><dt>Format Definition</dt>
-<dd><p id="_dd67fb97-de6b-df70-f02e-9240cee57066">This property parameter is extended by the following notation:</p>
+<dl id="_f9eccd2a-bd44-8ddf-2422-a706610363f5"><dt>Format Definition</dt>
+<dd><p id="_f2b1ba05-3bef-7a5f-6b0e-0bfb44750e96">This property parameter is redefined by the following notation which adds the value "FAILED":</p>
 </dd>
 </dl>
 
-<sourcecode id="_aecd9f5a-268d-0818-14b0-1befae70f5e6" lang="bnf">partstat-todo    =/ *("FAILED")  ; To-do cannot be completed</sourcecode>
+<sourcecode id="_89777100-5c42-aa53-c43d-b788c2495ef9" lang="bnf">       partstat-todo    = ("NEEDS-ACTION"    ; To-do needs action
+                        / "ACCEPTED"         ; To-do accepted
+                        / "DECLINED"         ; To-do declined
+                        / "TENTATIVE"        ; To-do tentatively
+                                             ; accepted
+                        / "DELEGATED"        ; To-do delegated
+                        / "COMPLETED"        ; To-do completed
+                                             ; COMPLETED property has
+                                             ; DATE-TIME completed
+                        / "IN-PROCESS"       ; To-do in process of
+                                             ; being completed
+                        / "FAILED"           ; To-do cannot be
+                                             ; completed
+                        / x-name             ; Experimental status
+                        / iana-token)        ; Other IANA-registered
+                                             ; status
+       ; These are the participation statuses for a "VTODO".
+       ; Default is NEEDS-ACTION.</sourcecode>
 
 
 <dl id="_538f2724-bf2c-f04d-6c85-2dc2528ac441"><dt>Example</dt>
@@ -499,8 +516,8 @@ partprop =/ percent / ; OPTIONAL but MUST NOT occur more than once.
 durparam      = *(";" other-param)</sourcecode>
 
 
-<dl id="_f93b641d-a9ed-3a99-da43-1b2824fe63e0"><dt>Description</dt>
-<dd><p id="_9c03c630-b6d4-e0e5-54ce-398c26cdbad0">In a "VTODO" calendar component the property MAY be used to specify the estimated duration for the to-do, with or without an explicit time window in which the event should be started and completed. When present, "DTSTART" and "DUE"/"DURATION" properties represent the window in which the task can be performed. The "ESTIMATED-DURATION" property SHOULD be passed from the organizer to the "Attendee" in iTIP  <eref type="inline" bibitemid="RFC5546" citeas="RFC 5546"/> messages.</p>
+<dl id="_c642d48b-9f24-a54a-7ea4-ff223751d3bb"><dt>Description</dt>
+<dd><p id="_f2d77228-b033-d593-2577-053873f4d325">In a "VTODO" calendar component the property MAY be used to specify the estimated duration for the to-do, with or without an explicit time window in which the event should be started and completed. When present, "DTSTART" and "DUE" or "DTSTART" and "DURATION" properties represent the window in which the task can be performed. The "ESTIMATED-DURATION" property SHOULD be passed from the organizer to the "Attendee" in iTIP  <eref type="inline" bibitemid="RFC5546" citeas="RFC 5546"/> messages.</p>
 </dd>
 <dt>Example</dt>
 <dd><p id="_7f414b00-b129-3ae9-0c94-1d0e21a7778a">The following is an example of this property that estimates the duration of a task to be one hour:</p>
@@ -732,15 +749,19 @@ TASK-MODE:SERVER</sourcecode>
 <title>Redefined STATUS Property</title>
 <p id="_dcdcea6a-a8fc-2089-6bd3-8ceb38fb5e8a">The Status property is defined in <eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"><localityStack><locality type="section"><referenceFrom>3.8.1.11</referenceFrom></locality></localityStack></eref>. This specification extends that property to include new values associated with "VTODO" calendar components (See Appendix A for examples of the task state lifecycle).</p>
 
-<dl id="_932f7786-45a5-5919-d2ef-64e1c7cb26b8"><dt>Format Definition</dt>
-<dd><p id="_b5d2f512-6d39-8bc9-f741-09b5a84f0376">The "STATUS" property parameter list is augmented as follows:</p>
+<dl id="_1655c8cd-42b8-a7ce-83a5-65ed72435560"><dt>Format Definition</dt>
+<dd><p id="_ad4a156a-d8fd-44a3-6be8-b5ba3214d07a">The "STATUS" property parameter list for tasks is redefined by the addition of the values "PENDING" and "FAILED":</p>
 </dd>
 </dl>
 
-<sourcecode id="_757a594b-919d-0a68-5973-619dd2cd1f5a" lang="bnf">statvalue-todo = / "PENDING"    ;Indicates a to-do has been
-                                ;created and accepted, but has
-                                ; not yet started.
-                / "FAILED"      ;Indicates to-do has failed.
+<sourcecode id="_32b5b670-c0e6-d88d-2872-fc327933d02f" lang="bnf">statvalue-todo  = "NEEDS-ACTION" ;Indicates to-do needs action.
+                / "COMPLETED"    ;Indicates to-do completed.
+                / "IN-PROCESS"   ;Indicates to-do in process of.
+                / "CANCELLED"    ;Indicates to-do was cancelled.
+                / "PENDING"      ;Indicates a to-do has been
+                                 ;created and accepted, but has
+                                 ; not yet started.
+                / "FAILED"       ;Indicates to-do has failed.
 ;Extended status values for "VTODO" calendar component.</sourcecode>
 
 
@@ -828,7 +849,7 @@ END:VSTATUS</sourcecode>
 
 <p id="_600a310f-4c7f-912f-9ef9-2add9c463918">Clients MUST NOT attempt to store iCalendar data containing "TASK-MODE" elements if the CALDAV:supported-task-mode-set WebDAV property is not advertised by the server.</p>
 
-<p id="_8d1f990e-ac9f-6d37-0ae6-64da689ed35a">The server SHOULD return an HTTP 403 response with a DAV:error element containing a CALDAV:supported-task-mode XML element, if a client attempts to store iCalendar data with an "TASK-MODE" element value not supported by the server.</p>
+<p id="_b4137032-49eb-39a4-77bc-a773ebe39848">The server MUST return an HTTP 403 response with a DAV:error element containing a CALDAV:supported-task-mode XML element, if a client attempts to store iCalendar data with an "TASK-MODE" element value not supported by the server.</p>
 
 <p id="_44074c20-c746-ac59-47d3-c091bdf3c336">It is possible for a "TASK-MODE" value to be present in calendar data on the server being accessed by a client that does not support the "TASK-MODE" property. It is expected that existing clients, unaware of "TASK-MODE", will fail gracefully by ignoring the calendar property.</p>
 
@@ -884,7 +905,7 @@ uppercase preferred --&gt;</sourcecode>
 
 <clause id="_update_of_the_status_registry" inline-header="false" obligation="normative">
 <title>Update of the Status registry</title>
-<p id="_05200945-f658-acbc-aa9a-e1dd20e5400e">This specification updates the Status registry defined in <eref type="inline" bibitemid="draft-ietf-calext-subscription-upgrade" citeas="draft-ietf-calext-subscription-upgrade"/> with additional values defined in this document.</p>
+<p id="_05200945-f658-acbc-aa9a-e1dd20e5400e">This specification updates the Status registry defined in <eref type="inline" bibitemid="draft-ietf-calext-subscription-upgrade" citeas="IETF draft-ietf-calext-subscription-upgrade"/> with additional values defined in this document.</p>
 
 <table id="_88ea8990-b6b4-99b3-60ec-2d9e796c5a9f">
 <name>Updated Status Value Registry</name>
@@ -1234,7 +1255,7 @@ uppercase preferred --&gt;</sourcecode>
 </annex><bibliography><references id="_normative_references" normative="true" obligation="informative">
 <title>Normative References</title>
 <bibitem id="RFC2119" type="standard" schema-version="v1.2.9">
-  <fetched>2024-10-16</fetched>
+  <fetched>2025-02-24</fetched>
   
 <title type="main" format="text/plain">Key words for use in RFCs to Indicate Requirement Levels</title>
 
@@ -1297,7 +1318,7 @@ uppercase preferred --&gt;</sourcecode>
   <keyword>Documents</keyword>
 </bibitem>
 <bibitem id="RFC4791" type="standard" schema-version="v1.2.9">
-  <fetched>2024-12-01</fetched>
+  <fetched>2025-02-24</fetched>
   
 <title type="main" format="text/plain">Calendaring Extensions to WebDAV (CalDAV)</title>
 
@@ -1379,7 +1400,7 @@ uppercase preferred --&gt;</sourcecode>
   <keyword>http</keyword>
 </bibitem>
 <bibitem id="RFC4918" type="standard" schema-version="v1.2.9">
-  <fetched>2024-12-01</fetched>
+  <fetched>2025-02-24</fetched>
   
 <title type="main" format="text/plain">HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV)</title>
 
@@ -1441,7 +1462,7 @@ uppercase preferred --&gt;</sourcecode>
   <keyword>content</keyword>
 </bibitem>
 <bibitem id="RFC5545" type="standard" schema-version="v1.2.9">
-  <fetched>2024-10-16</fetched>
+  <fetched>2025-02-24</fetched>
   
 <title type="main" format="text/plain">Internet Calendaring and Scheduling Core Object Specification (iCalendar)</title>
 
@@ -1517,7 +1538,7 @@ uppercase preferred --&gt;</sourcecode>
   <keyword>xCalendar</keyword>
 </bibitem>
 <bibitem id="RFC5546" type="standard" schema-version="v1.2.9">
-  <fetched>2024-10-16</fetched>
+  <fetched>2025-02-24</fetched>
   
 <title type="main" format="text/plain">iCalendar Transport-Independent Interoperability Protocol (iTIP)</title>
 
@@ -1582,7 +1603,7 @@ uppercase preferred --&gt;</sourcecode>
   <keyword>scheduling</keyword>
 </bibitem>
 <bibitem id="RFC8174" type="standard" schema-version="v1.2.9">
-  <fetched>2024-12-01</fetched>
+  <fetched>2025-02-24</fetched>
   
 <title type="main" format="text/plain">Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</title>
 
@@ -1649,7 +1670,7 @@ uppercase preferred --&gt;</sourcecode>
   </series>
 </bibitem>
 <bibitem id="RFC9073" type="standard" schema-version="v1.2.9">
-  <fetched>2024-10-16</fetched>
+  <fetched>2025-02-24</fetched>
   
 <title type="main" format="text/plain">Event Publishing Extensions to iCalendar</title>
 
@@ -1714,7 +1735,7 @@ uppercase preferred --&gt;</sourcecode>
   <keyword>properties</keyword>
 </bibitem>
 <bibitem id="RFC9074" type="standard" schema-version="v1.2.9">
-  <fetched>2024-12-01</fetched>
+  <fetched>2025-02-24</fetched>
   
 <title type="main" format="text/plain">"VALARM" Extensions for iCalendar</title>
 
@@ -1789,7 +1810,7 @@ uppercase preferred --&gt;</sourcecode>
   <keyword>CalDAV</keyword>
 </bibitem>
 <bibitem id="RFC9253" type="standard" schema-version="v1.2.9">
-  <fetched>2024-10-16</fetched>
+  <fetched>2025-02-24</fetched>
   
 <title type="main" format="text/plain">Support for iCalendar Relationships</title>
 
@@ -1856,7 +1877,7 @@ uppercase preferred --&gt;</sourcecode>
 <bibitem id="draft-ietf-calext-subscription-upgrade" type="book"><formattedref format="application/x-isodoc+xml">Douglass, M.,
 <em>draft-ietf-calext-subscription-upgrade</em>,
 <link target="https://datatracker.ietf.org/doc/draft-ietf-calext-subscription-upgrade/"/>.
-</formattedref><title>    <em>draft-ietf-calext-subscription-upgrade</em></title><uri type="src">https://datatracker.ietf.org/doc/draft-ietf-calext-subscription-upgrade/</uri><docidentifier>draft-ietf-calext-subscription-upgrade</docidentifier><contributor>
+</formattedref><title>    <em>draft-ietf-calext-subscription-upgrade</em></title><uri type="src">https://datatracker.ietf.org/doc/draft-ietf-calext-subscription-upgrade/</uri><docidentifier type="IETF">IETF draft-ietf-calext-subscription-upgrade</docidentifier><contributor>
   <role type="author"/>
   <person>
     <name>        <formatted-initials>M.</formatted-initials>        <surname>Douglass</surname>     </name>
@@ -1864,7 +1885,7 @@ uppercase preferred --&gt;</sourcecode>
 </contributor></bibitem>
 </references><references id="_informative_references" normative="false" obligation="informative">
 <title>Informative References</title><bibitem id="BPMN" schema-version="v1.2.9">
-  <fetched>2024-12-01</fetched>
+  <fetched>2025-02-24</fetched>
   
 <title type="main" format="text/plain" language="en" script="Latn">Business Process Model and Notation</title>
 
@@ -1885,18 +1906,21 @@ uppercase preferred --&gt;</sourcecode>
   <relation type="obsoletes">
     <bibitem>
       <formattedref format="text/plain">OMG BPMN 1.2</formattedref>
+      <docidentifier type="OMG">OMG BPMN 1.2</docidentifier>
     </bibitem>
 
   </relation>
   <relation type="obsoletes">
     <bibitem>
       <formattedref format="text/plain">OMG BPMN 1.1</formattedref>
+      <docidentifier type="OMG">OMG BPMN 1.1</docidentifier>
     </bibitem>
 
   </relation>
   <relation type="obsoletes">
     <bibitem>
       <formattedref format="text/plain">OMG BPMN 1.0</formattedref>
+      <docidentifier type="OMG">OMG BPMN 1.0</docidentifier>
     </bibitem>
 
   </relation>
