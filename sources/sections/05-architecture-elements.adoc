@@ -1,12 +1,12 @@
 
 [[architecture-elements]]
-== Task Architecture Elements
+=== Task Architecture Elements
 
 The following logical elements form the task architecture that this specification is based on:
 
 Task Actors:: Various calendar users that may be involved in the monitoring or performing of a task. The set of actors includes: Organizers, Observers, Resources, Assignees, and Candidates.
 
-Task Organizer:: The Organizer of a task.
+Task Organizer:: The creator of a task, who also determines task assignment and scheduling, and monitors task progress.
 
 Task Domain Data:: This is any domain specific data that may be acted on or provides context to it in performing a task.
 
@@ -33,11 +33,19 @@ including the two general cases:
 In either case the assignment may be made based on a variety of criteria
 including, name, availability, skills, capacity, etc.
 
-Task Generating System:: A system that creates and assigns tasks in response to some initiating event (task trigger). Task creation is according to Process Logic with task assignment determined by Task Assignment Rules. This system also tracks the status of tasks and will initiate further actions based upon the status. A task generating system can take many forms, for example; Business Process Management System, Project Management System, Bug Tracking System, Building Control System. A Task Generating System may also be a human. In iCalendar terms the Task Generating System is the organizer.
-
-Human Task Generation:: Task creation, assignment and tracking coordinated by a human organizer is a special case of a task generating system. In this case Task Assignment Rules and Process Logic may be either explicit or tacit.
-
-Directory Service:: A software system that stores and provides access to information providing details of task actors that may participate or be interested in a task.
+Task Generating System:: A system that creates and assigns tasks in response to some initiating
+event (task trigger). Task creation is according to Process Logic with
+task assignment determined by Task Assignment Rules. This system also
+tracks the status of tasks and will initiate further actions based
+upon the status. A task generating system can take many forms, for
+example; Business Process Management System, Project Management System,
+Bug Tracking System, Building Control System. A Task Generating System
+may also be a human. In iCalendar terms the Task Generating System is
+the organizer.
++
+Task creation, assignment and tracking coordinated by a human
+organizer is a special case of a task generating system. In this case
+Task Assignment Rules and Process Logic may be either explicit or tacit.
 
 Calendar and Scheduling System:: A software system that stores, publishes and synchronizes calendar data such as events, tasks and journal entries for actors. In the context of tasks this includes schedules (i.e. allocated time and availability to perform tasks) and task lists. A calendar and scheduling system typically consists of server and client software components.
 

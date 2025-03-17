@@ -3,7 +3,7 @@
 
 == Task Extensions
 
-In order to support the task architecture described in <<architecture>>, this document defines a number of extensions to the current iCalendar standards in the areas of:
+In order to support the task architecture described in <<architecture>>, this document defines a number of extensions to iCalendar <<RFC5545>> in the areas of:
 
 Task Specification:: improved ability to specify domain specific tasks
 

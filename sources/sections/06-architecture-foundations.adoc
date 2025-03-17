@@ -1,7 +1,7 @@
 
 [[architecture-foundations]]
 
-== Architecture Foundations
+=== Architecture Foundations
 
 The key standards that enable interoperability between the logical
 elements of the architecture are the Internet Calendaring and

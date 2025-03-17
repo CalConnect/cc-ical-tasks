@@ -157,8 +157,7 @@ task-mode   = "TASK-MODE taskmodeparam ":"
                  / "AUTOMATIC"
                  / "SERVER"
                  / "CLIENT"
-                 / iana-token
-                 / x-name) CRLF
+                 / iana-token) CRLF
 
 taskmodeparam      = *(";" other-param)
 ----
@@ -181,7 +180,7 @@ If the "TASK-MODE" property is absent then the "CLIENT" value is assumed.
 AUTOMATIC-COMPLETION Task Mode::
 
 The task mode value "AUTOMATIC-COMPLETION" indicates to the server
-that it can change the "VTODO" calendar component's status to
+that it SHOULD change the "VTODO" calendar component's status to
 "COMPLETED" as soon as all attendees in the task have replied with a
 "partstat" parameter set to "COMPLETED".
 +
@@ -203,7 +202,7 @@ Completing the task MUST be handled by a client.
 [[task-mode-automatic]]
 AUTOMATIC Task Mode::
 
-This mode handles both "AUTOMATIC-COMPLETION" and "AUTOMATIC-FAILURE".
+This mode handles the automatic behavior of both "AUTOMATIC-COMPLETION" and "AUTOMATIC-FAILURE".
 
 [[task-mode-client]]
 CLIENT Task Mode::
@@ -214,7 +213,7 @@ the status set by the client.
 [[task-mode-server]]
 SERVER Task Mode::
 
-The task mode value "SERVER" indicates to the server that it can change
+The task mode value "SERVER" indicates to the server that it SHOULD change
 the "VTODO" calendar component's status to an appropriate value, based on
 implementation defined "business rules", as attendee responses are
 processed or as deadlines related to the task pass.

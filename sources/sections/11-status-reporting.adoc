@@ -56,6 +56,7 @@ of changes to a tasks properties. The purpose of the "VSTATUS"
 calendar component is only to document changes related to fulfilling
 the tasks
 
+[[attendee-participant]]
 === Relating reason and comments to "ATTENDEE" property status changes.
 
 The <<RFC9073>> "PARTICIPANT" calendar component can be used to provide additional

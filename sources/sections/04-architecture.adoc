@@ -1,18 +1,17 @@
 
 [[architecture]]
 == Task Architecture
-A reference architecture for task calendaring and
-scheduling is defined in order to identify the key
-logical elements involved in task management and the
-interfaces between them to enable interoperability.
-The logical elements identified here establish an
-appropriate separation of concerns and clarify the
-responsibilities of different elements. However, the
-architecture does not prescribe a binding or packaging
-of elements, i.e., software systems may be developed
-where some elements are tightly bound and the interfaces
-between bound elements are not exposed. The task
-architecture is also described in <<TARCH>>.
+A reference architecture for task calendaring and scheduling is
+defined in order to identify the key logical elements involved in
+task management and the interfaces between them to enable
+interoperability. Central to this architecture is the Calendar and
+Scheduling System. The logical elements identified here establish
+an appropriate separation of concerns and clarify the responsibilities
+of different elements. However, the architecture does not prescribe a
+binding or packaging of elements, i.e., software systems may be
+developed where some elements are tightly bound and the interfaces
+between bound elements are not exposed. The task architecture is also
+described in <<TARCH>>.
 
 .Task architecture diagram
 [align=center,alt=ASCII Art]
