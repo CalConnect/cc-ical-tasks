@@ -46,7 +46,7 @@
   <middle>
     <section anchor="_introduction"><name>Introduction</name>
 
-<t anchor="_b5b55fe9-a51e-3cd8-50e2-eaf01dbf8858">This document specifies extensions to the existing Internet Calendaring and Scheduling Core Object Specification (iCalendar) <xref target="RFC5545" section="" relative=""></xref>, and associated protocols, in order to enhance the structured communication and execution of tasks. The enhancements allow for the communication, time planning and scheduling of tasks by and between automated systems (e.g. taxi dispatch systems, in smart power grids, business process management systems) as well as for human centered tasks.</t>
+<t anchor="_a42c5c82-84f1-d84f-8644-2590066546c2">This document specifies extensions to the existing Internet Calendaring and Scheduling Core Object Specification (iCalendar) <xref target="RFC5545" section="" relative=""></xref>, and associated protocols, in order to enhance the structured communication and execution of tasks. The enhancements allow for the communication, time planning and scheduling of tasks by and between automated systems (e.g. taxi dispatch systems, in smart power grids (see  <xref target="WsCalendar" section="" relative=""></xref>), business process management systems) as well as for human centered tasks.</t>
 
 <t anchor="_661d834c-cd2d-1845-81bd-5378fdcb0bee">A "task" is a representation of an item of work assigned to an individual or organization. In the iCalendar Object Model <xref target="RFC5545" section="" relative=""></xref> the representation of tasks is by "VTODO" calendar components. Tasks can be identified in a number of situations, either informally as ad-hoc tasks in personal "to-do" lists or more formally in: Business processes - ranging from repetitive workflows to adaptive cases and trouble ticketing Project Management - whether for large scale construction projects or collaborative software development</t>
 
@@ -79,16 +79,16 @@
 
 <t anchor="terms">Terms defined and used in this specification include:</t>
 
-<dl anchor="_efa16f8a-8bdd-a679-c6c7-452a95048edd"><dt>Assignee</dt><dd><t anchor="_5d621232-7751-8c35-1920-1537abc0a307">A calendar user assigned to perform a given task. An assignee is equivalent to an "Attendee" of a task.</t>
+<dl anchor="_34a4f9b0-1c46-afee-f1ba-7b4915e89092"><dt>Assignee</dt><dd><t anchor="_5d621232-7751-8c35-1920-1537abc0a307">A calendar user assigned to perform a given task. An assignee is equivalent to an "Attendee" of a task.</t>
 </dd><dt>BPMS</dt><dd><t anchor="_52e8b514-a983-ce30-a13a-09ab7450c184">Business Process Management Software</t>
 </dd><dt>Calendar User (CU)</dt><dd><t anchor="_374c8f1b-2ebd-9eb4-be1f-2583b89e496d">A person or software system that accesses or modifies calendar information.</t>
 </dd><dt>Calendar User Agent (CUA)</dt><dd><t anchor="_544d56c8-2b56-d7ff-fdb6-113a308ca4d4">This may be</t>
-<ol anchor="_f55ca4e7-ddf7-e017-6204-f224e6884456" type="1"><li anchor="_cea6bb2e-c79a-4c99-9de7-70ea82f4cb7f">Software with which the calendar user communicates with a calendar service or local calendar store to access calendar information.</li>
-<li anchor="_2f4ca55f-d602-453b-948d-0f23aa960679">Software that gathers calendar data on the Calendar User's behalf.</li>
+<ol anchor="_f55ca4e7-ddf7-e017-6204-f224e6884456" type="1"><li anchor="_cb09a0bd-d650-44ba-8083-d0f2f9c4c063">Software with which the calendar user communicates with a calendar service or local calendar store to access calendar information.</li>
+<li anchor="_286aa0d3-6297-4f78-9bb6-d2dec227c9a0">Software that gathers calendar data on the Calendar User's behalf.</li>
 </ol>
 </dd><dt>Candidate</dt><dd><t anchor="_42acef95-57db-508f-8989-2fe723ef9be3">A calendar user who might be able to perform a given task, prior to actually being assigned the task, e.g., a dispatcher has a list of taxi drivers (candidates) from which one will be selected to pick-up a passenger.</t>
 </dd><dt>Organizer</dt><dd><t anchor="_9e38ae26-9587-a53a-576b-545610d9080c">A calendar user who creates a calendar item, requests free/busy information, or published free/busy information. It is an "Organizer" who invites "Attendees"  <xref target="RFC5545" section="" relative=""></xref>.</t>
-</dd><dt>Observer</dt><dd><t anchor="_8b8039f3-02f4-c6e4-2352-baf06af12b63">A calendar user interested in a calendar component, e.g., a manager may have interest in all tasks that have not been completed. Often represented as an "Attendee" with the "role" paramdeter set to the value "NON-PARTICIPANT".</t>
+</dd><dt>Observer</dt><dd><t anchor="_d89a93dd-8799-4347-8c82-5500fffef4e3">A calendar user interested in a calendar component, e.g., a manager may have interest in all tasks that have not been completed. Often represented as an "Attendee" with the "role" parameter set to NON-PARTICIPANT.</t>
 </dd><dt>Resource</dt><dd><t anchor="_261d9172-7184-d95e-b9ca-37a5255e61d8">A resource in the scheduling context is any shared entity that can be scheduled by a calendar user, but does not control its own attendance status. Examples of such resources are locations such as a bookable conference room or equipment such as projectors.</t>
 </dd><dt>Task</dt><dd><t anchor="_ca42a2c3-471b-061d-e826-fd1bc5066803">A representation of an item of work that can be assigned to one or more task actor assignees. In <xref target="RFC5545" section="" relative=""></xref>, these are "VTODO" calendar components, which are groupings of component properties and possibly "VALARM" calendar components that represent an action-item or assignment.</t>
 </dd></dl>
@@ -159,8 +159,8 @@
 </dd><dt>Process Logic</dt><dd><t anchor="_58226eaa-39fe-8d26-0269-9cb3c9496374">Determines under what conditions a task (or tasks) is generated and the actions to take on completion, or some other status event occurring (or not) on the task.</t>
 </dd><dt>Task Trigger</dt><dd><t anchor="_5d1a5a10-3e82-41d3-8ac8-028fb12684cb">This is some event that gives rise to the generation of a task according to Process Logic. Task triggers can come from many sources including, for example; a task being requested through the calendaring system, a status change in the progression of a business process being managed by a business process management or Enterprise resource planning (ERP) system.</t>
 </dd><dt>Task Assignment Rules</dt><dd><t anchor="_aad1a35f-6e8b-92b4-d0a2-af968413e892">Govern how actors are assigned to a task. A range of different assignment patterns  <xref target="WfRP" section="" relative=""></xref> may be considered, including the two general cases:</t>
-<ol anchor="_d3e936cf-1465-e25b-e062-e375bdb592cd" type="a"><li anchor="_0f0d3d98-6a20-41d8-9be4-d26037848cbf">Delegation to a named actor or group of actors</li>
-<li anchor="_46204cc2-b54c-448c-b55c-6870d307acd0">Advertising to a pool of actors for self-selection</li>
+<ol anchor="_d3e936cf-1465-e25b-e062-e375bdb592cd" type="a"><li anchor="_d71d92dd-44a3-44db-b20d-8af121cdfc33">Delegation to a named actor or group of actors</li>
+<li anchor="_ece9c1a2-3ceb-47b4-8ed1-14c039dd9b8a">Advertising to a pool of actors for self-selection</li>
 </ol>
 
 <t anchor="_0aab3697-351a-1ba4-f745-470bc42ffec0">In either case the assignment may be made based on a variety of criteria including, name, availability, skills, capacity, etc.</t>
@@ -221,26 +221,26 @@
 
 <t anchor="_e9095742-8a6c-0ecd-6da1-18ea01278d58">The "LINK" property can be used to relate a domain specific service to the task. For example, it might be a URI pointing to a web page where the status of the task can be directly manipulated.</t>
 
+<t anchor="_713fe063-4c7c-91e6-5983-dc9d6470a7aa">(Note: link relations below are for illustration only)</t>
+
 <sourcecode anchor="_cb48e247-1c5b-3ea0-0d8c-5ca79cdbc378"><![CDATA[LINK;LINKREL="vacation-system";VALUE=URI:
  http://example.com/vacation-approval?id=1234]]></sourcecode>
 
 
-<t anchor="_b30bb253-b534-ce2f-fefb-80e30685c63a">Additionally, it might be used to link data specific to the task, for example an electronic copy of a signature taken to confirm delivery of a package.</t>
+<t anchor="_277e6583-6a76-f04d-9d50-083e723ca211">Additionally, it might be used to link data specific to the task, for example an electronic copy of a signature taken to confirm delivery of a package.</t>
 
-<t anchor="_d1155505-1dcc-6146-3ed2-f3c329bcc180">(Note: link relations below are for illustration only)</t>
+<sourcecode anchor="_aa5e8c2e-b474-4215-4547-0f5fbafd37e8"><![CDATA[LINK;LINKREL="electronic-signature";VALUE=URI:
+ http://example.com/delivery/sig1234.jpg]]></sourcecode>
+
 
 <t anchor="_f054f9a7-ed38-d716-54dd-b6710b700927">The <xref target="RFC9253" section="" relative=""></xref> "REFID" property is used to identify a key used to group tasks by that key.</t>
 
-<sourcecode anchor="_356e858e-3dab-85d5-562f-63ea06a3e233"><![CDATA[REFID:Manhattan
+<sourcecode anchor="_f60ad16f-5ba8-d66e-4e01-4029ec6b854c"><![CDATA[REFID:Manhattan
 
 REFID:1234567890]]></sourcecode>
 
 
 <t anchor="_a9cfdf40-a81f-5282-112f-e8c6fd352f25">Extensions to the "RELATED-TO" property defined in <xref target="RFC9253" section="" relative=""></xref> allow temporal relationships between tasks as found in project management to be specified as well as parent/child relationships and dependencies (DEPENDS-ON). Tasks ("VTODO" calendar components) may also be related to other calendar components; for example to a "VEVENT" calendar component to block time to perform a task.</t>
-
-<sourcecode anchor="_1f5169fe-d6d3-29b4-7a7f-6510dffc9e35"><![CDATA[LINK;LINKREL="electronic-signature";VALUE=URI:
- http://example.com/delivery/sig1234.jpg]]></sourcecode>
-
 </section>
 </section>
     <section anchor="deadlines"><name>Task Deadlines, Milestones and Time Planning</name>
@@ -281,7 +281,7 @@ END:VSTATUS]]></sourcecode>
 
 <section anchor="_comments_associated_to_reasons_and_status_changes"><name>Comments associated to reasons and status changes</name>
 
-<t anchor="_9058f1c6-6d4a-ad17-ef13-09698d253633">Multiple comments and reasons may have the same status. As situations change further "VSTATUS" calendar components can be added to provide additional information.</t>
+<t anchor="_cbbdc052-3e19-a308-73e9-21fb79fe803c">Multiple comments and reasons may have the same status. As situations change, further "VSTATUS" calendar components can be added to provide additional information.</t>
 
 <sourcecode anchor="_ff72360d-3ca5-140e-f2fc-df6db18547db"><![CDATA[CONCEPT:https://example.com/task/delivery
 BEGIN:VSTATUS
@@ -304,14 +304,23 @@ DTSTAMP:20220212T180451Z
 END:VSTATUS]]></sourcecode>
 
 
-<t anchor="_f2e9e874-107c-932a-514a-afdbfbf81b6c">Note that the "VSTATUS" calendar component is not intended to be used as a history of changes to a tasks properties. The purpose of the "VSTATUS" calendar component is only to document changes related to fulfilling the tasks</t>
+<t anchor="_0c222665-85ab-807c-8fd4-16e235eed59e">Note that the "VSTATUS" calendar component is not intended to be used as a history of changes to a tasks properties. The purpose of the "VSTATUS" calendar component is only to document changes related to fulfilling the tasks.</t>
+</section>
+
+<section anchor="_updating_the_overall_status"><name>Updating the overall status</name>
+
+<t anchor="_51e391b9-3ccf-dd7a-1a76-b9713f133c99">Only the Task Organizer, or the server acting as the Organizers proxy, may change or add "VSTATUS" calendar components and the "STATUS" property.</t>
+
+<t anchor="_d49fcd76-16de-3f0a-1232-01b0e60a92e6">The overall VSTATUS will be changed in response to incoming Attendee replies. Each change of the overall VSTATUS MUST be accompanied by a change to the STATUS.</t>
+
+<t anchor="_fa8a6555-dc55-8c92-f6a2-358c0ce9d1ed">Note there is no defined ordering of properties and components so the DTSTAMP property SHOULD be set for each VSTATUS component to preserve ordering.</t>
 </section>
 
 <section anchor="attendee-participant"><name>Relating reason and comments to "ATTENDEE" property status changes.</name>
 
-<t anchor="_1b8b62c0-ee39-d93c-7d2c-cdded3f19888">The <xref target="RFC9073" section="" relative=""></xref> "PARTICIPANT" calendar component can be used to provide additional information about why an "ATTENDEE" property participation status has changed. The "COMMENT" property can also be used to include additional human-readable information about why the associated "STATUS" or "ATTENDEE" property changed. For example, if a driver failed to deliver a package because of a puncture it might be expressed as</t>
+<t anchor="_09e71886-1e64-3169-0240-9ac0e0017be1">The <xref target="RFC9073" section="" relative=""></xref> "PARTICIPANT" calendar component can be used to provide additional information about why an "ATTENDEE" property participation status has changed following the guidelines set out in  <xref target="RFC9073" section="7.1" relative=""></xref>. The "COMMENT" property can also be used to include additional human-readable information about why the associated "STATUS" or "ATTENDEE" property changed. For example, if a driver failed to deliver a package because of a puncture it might be expressed as</t>
 
-<sourcecode anchor="_a0a113b8-1cc9-dd25-f377-1dc193bd2489"><![CDATA[ATTENDEE;PARTSTAT=FAILED:mailto:xxx@example.com
+<sourcecode anchor="_144c387f-0c78-1784-d2d6-566076dce2f2"><![CDATA[ATTENDEE;PARTSTAT=FAILED:mailto:xxx@example.com
 ...
 BEGIN:PARTICIPANT
 CALENDAR-ADDRESS:mailto:xxx@example.com
@@ -324,18 +333,18 @@ END:PARTICIPANT]]></sourcecode>
 
 <section anchor="_task_alerts_and_notifications"><name>Task Alerts and Notifications</name>
 
-<t anchor="_c7f67617-9a6b-090e-df66-dae54e98c8cc">Different needs to alert or notify task actors of pending or actual task status changes are recognized:</t>
+<t anchor="_db41305b-d41e-3a84-e7b9-7e0a0d366e09">Different needs to alert or notify task actors of pending or actual task status changes are recognized:</t>
 
-<dl anchor="_dfb7dff1-0587-206e-32d7-2952ea84dfee"><dt>Alarms</dt><dd><t anchor="_3add664d-be3c-cd56-5902-1acda695ba3c">"VALARM" calendar components operate in the calendar user agent space to notify the task actor of a pending task state for a task they are assigned to or are interested in.</t>
-<t anchor="_205425ef-b2d1-bb9e-07ed-8ac20da112a5">Current standards (see <xref target="RFC9074" section="" relative=""></xref>) indicate "VALARM" calendar components SHOULD be removed from incoming data and many systems in fact do so. In a task assignment scenario it may be appropriate for the organizer to be able to set alarms for the participants. A system implementing these standards may choose to preserve "VALARM" calendar components but sending a task via some external service may result in them being removed. This issue is not addressed by this specification.</t>
-</dd><dt>Escalations</dt><dd><t anchor="_0dbb2ee1-9316-be71-763d-11dea7ad11de">An escalation or notification to the "Attendee", "Organizer", or other task actor may be required if a deadline associated with a task is exceeded or for some other reason. Process Logic identifying when and who to propagate escalations is the responsibility of the Task Generating System, e.g., a BPMS.</t>
-</dd><dt>Notifications</dt><dd><t anchor="_3115eb18-4781-1ff6-eb39-4f9eaecfce0c">Task actors (observers) not directly involved in performing a task, but with a known interest in a given task's status, can be identified by the "PARTICIPANT" calendar component  <xref target="RFC9073" section="" relative=""></xref> against certain components e.g. the "VALARM" calendar component, to identify which task events the stakeholder/party is interested in. Notifications on shared calendars will allow task actors to register an interest in changes to tasks within a calendar (see  <xref target="appendix-a"></xref>).</t>
+<dl anchor="_4221c677-4d96-8ceb-52f1-ea9a5252b05a"><dt>Alarms</dt><dd><t anchor="_584e8ca2-5149-5485-acf4-f5f9070a7492">"VALARM" calendar components operate in the calendar user agent space to notify the task actor of a pending task state for a task they are assigned to or are interested in.</t>
+<t anchor="_27ba8ab3-4af0-0335-9e21-643b010ea691">Current standards (see <xref target="RFC9074" section="" relative=""></xref>) indicate "VALARM" calendar components SHOULD be removed from incoming data and many systems in fact do so. In a task assignment scenario it may be appropriate for the organizer to be able to set alarms for the participants. A system implementing these standards may choose to preserve "VALARM" calendar components but sending a task via some external service may result in them being removed. This issue is not addressed by this specification.</t>
+</dd><dt>Escalations</dt><dd><t anchor="_e6c15f10-1248-f958-aeae-9329faa2887e">An escalation or notification to the "Attendee", "Organizer", or other task actor may be required if a deadline associated with a task is exceeded or for some other reason. Process Logic identifying when and who to propagate escalations is the responsibility of the Task Generating System, e.g., a BPMS.</t>
+</dd><dt>Notifications</dt><dd><t anchor="_eca280ea-d782-5438-9e3c-e0d0c6ea289f">Task actors (observers) not directly involved in performing a task, but with a known interest in a given task's status, can be identified by the "PARTICIPANT" calendar component  <xref target="RFC9073" section="" relative=""></xref> against certain components e.g. the "VALARM" calendar component, to identify which task events the stakeholder/party is interested in. Notifications on shared calendars will allow task actors to register an interest in changes to tasks within a calendar (see  <xref target="appendix-a"></xref>).</t>
 </dd></dl>
 </section>
 
 <section anchor="_automated_status_changes"><name>Automated Status Changes</name>
 
-<t anchor="_d96bbc8f-5b47-c614-b8b3-90f03b172802">A new "TASK-MODE" property is introduced to instruct servers to apply automated operations for changing the status of a task.</t>
+<t anchor="_bd769b87-0e62-189f-51a7-0a78708d4fc4">A new "TASK-MODE" property is introduced to instruct servers to apply automated operations for changing the status of a task.</t>
 </section>
 </section>
     <section anchor="modifications-to-calendar-components"><name>Modifications to Calendar Components</name>
@@ -540,8 +549,8 @@ taskmodeparam      = *(";" other-param)]]></sourcecode>
 </dd></dl>
 
 <dl anchor="task-mode-automatic-failure"><dt>AUTOMATIC-FAILURE Task Mode</dt><dd><t anchor="_8d44d2b3-385f-0ecb-f763-09b7600348b5">The task mode value "AUTOMATIC-FAILURE" indicates to the server that it SHOULD change the "VTODO" calendar component's status to "FAILED" if either:</t>
-<ol anchor="_ebf023ad-207b-89f6-a2e4-d90ea372acdd" type="1"><li anchor="_7a00fb3f-4909-4660-bed4-b653ef266d3b">the PARTSTAT of one "ATTENDEE" property is set to FAILED; or</li>
-<li anchor="_a5e23c1c-c92a-41aa-8c08-f50bb5e9c8cc"><t anchor="_4ad177dc-dca9-679e-aba4-fa505a1a961c">the current time is past the effective due date of the component and the task has not yet been completed. The effective due date is either the "DUE" property value or the combination of the "DTSTART" and "DURATION" property values.</t>
+<ol anchor="_ebf023ad-207b-89f6-a2e4-d90ea372acdd" type="1"><li anchor="_cf28127a-2918-47df-82f2-20e6c41a9771">the PARTSTAT of one "ATTENDEE" property is set to FAILED; or</li>
+<li anchor="_666776b1-92a0-41f2-9d43-7296010e59fe"><t anchor="_4ad177dc-dca9-679e-aba4-fa505a1a961c">the current time is past the effective due date of the component and the task has not yet been completed. The effective due date is either the "DUE" property value or the combination of the "DTSTART" and "DURATION" property values.</t>
 <t anchor="_7031fe24-8b93-75fd-700d-8424c6159176">Completing the task MUST be handled by a client.</t>
 </li>
 </ol>
@@ -852,6 +861,7 @@ uppercase preferred -->]]></sourcecode>
       <name>Informative References</name>
       <reference target="https://www.omg.org/spec/BPMN/2.0.2/About-BPMN" anchor="BPMN"><front> <title>Business Process Model and Notation</title><author surname="Unknown"></author> <date month="January" year="2014"></date> <keyword>Business Modeling</keyword><keyword>Domain</keyword> <abstract><t>Business Process Model and Notation has become the de-facto standard for business processes diagrams. It is intended to be used directly by the stakeholders who design, manage and realize business processes, but at the same time be precise enough to allow BPMN diagrams to be translated into software process components. BPMN has an easy-to-use flowchart-like notation that is independent of any particular implementation environment.</t></abstract> </front> <format target="https://www.omg.org/spec/BPMN/2.0.2/About-BPMN" type="src"></format><format target="https://www.omg.org/spec/BPMN/2.0.2/PDF" type="pdf"></format> <refcontent>OMG BPMN 2.0.2</refcontent></reference>
       <reference target="https://www.calconnect.org/architectures/Task%20Architecture%201.0.pdf" anchor="TARCH"><front> <title>CalConnect, Task Architecture V1.0</title> <author surname="Apthorp" asciiSurname="Apthorp" initials="A." asciiInitials="A."></author> <author surname="Daboo" asciiSurname="Daboo" initials="C." asciiInitials="C."></author> <author surname="Douglass" asciiSurname="Douglass" initials="M." asciiInitials="M."></author>  </front> <format target="https://www.calconnect.org/architectures/Task%20Architecture%201.0.pdf" type="src"></format> <refcontent>(CalConnect Task Architecture V1.0</refcontent></reference>
+      <reference target="https://docs.oasis-open.org/ws-calendar/ws-calendar-spec/v1.0/cs01/ws-calendar-spec-v1.0-cs01.pdf" anchor="WsCalendar"><front> <title>WS-Calendar Version 1.0</title> <author surname="Considine" asciiSurname="Considine" initials="T." asciiInitials="T."></author> <author surname="Douglass" asciiSurname="Douglass" initials="M." asciiInitials="M."></author> <date year="2011"></date> </front> <format target="https://docs.oasis-open.org/ws-calendar/ws-calendar-spec/v1.0/cs01/ws-calendar-spec-v1.0-cs01.pdf" type="src"></format> <refcontent>WsCalendar</refcontent></reference>
       <reference target="http://www.workflowpatterns.com/patterns/resource/" anchor="WfRP"><front> <title>Workflow Resource Patterns</title> <author surname="Russell" asciiSurname="Russell" initials="N." asciiInitials="N."></author> <author surname="ter Hofstede" asciiSurname="ter Hofstede" initials="A.H.M." asciiInitials="A.H.M."></author> <author surname="Edmond" asciiSurname="Edmond" initials="T." asciiInitials="T."></author> <author surname="van der Aalst," asciiSurname="van der Aalst," initials="W.M.P." asciiInitials="W.M.P."></author> <date year="2004"></date> </front> <format target="http://www.workflowpatterns.com/patterns/resource/" type="src"></format> <refcontent>WfRP</refcontent></reference>
     </references>
     <section anchor="appendix-a"><name>Examples of Task State Lifecycle</name>

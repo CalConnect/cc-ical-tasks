@@ -8,7 +8,7 @@ thead th { font-weight: bold; background-color: aqua; }
 .severity3 { font-style: italic; color: grey; }
 </style>
 </head><body><h1>sources/draft-ietf-calext-ical-tasks.err.html errors</h1>
-<ul><li><p><b><a href="#Relaton">Relaton</a></b>: Severity 3: <b>4</b> errors</p></li>
+<ul><li><p><b><a href="#Relaton">Relaton</a></b>: Severity 3: <b>5</b> errors</p></li>
 
 <li><p><b><a href="#Style">Style</a></b>: Severity 2: <b>5</b> errors</p></li>
 
@@ -33,6 +33,9 @@ thead th { font-weight: bold; background-color: aqua; }
 <tr class="severity3">
 <td></td><th><code>WfRP</code></th>
 <td><code>WfRP</code> does not have a recognised prefix</td><td><pre></pre></td><td>3</td></tr>
+<tr class="severity3">
+<td></td><th><code>WsCalendar</code></th>
+<td><code>WsCalendar</code> does not have a recognised prefix</td><td><pre></pre></td><td>3</td></tr>
 </tbody></table>
 <h2 id="Style">Style</h2>
 <table border="1">
@@ -43,7 +46,7 @@ thead th { font-weight: bold; background-color: aqua; }
 <td>000036</td><th><code><a href='sources/draft-ietf-calext-ical-tasks.html#_introduction'>_​introduction</a></code></th>
 <td>Hanging paragraph in clause</td><td><pre>&lt;clause id=&quot;_introduction&quot; inline-header=&quot;false&quot; obligation=&quot;normative&quot;&gt;
 &lt;title&gt;Introduction&lt;/title&gt;
-&lt;p id=&quot;_b5b55fe9-a51e-3cd8-50e2-eaf01dbf8858&quot;&gt;This document specifies extensions to the existing Internet Calendaring and Scheduling Core Object Specification (iCalendar) &lt;eref type=&quot;inline&quot; bibitemid=&quot;RFC5545&quot; citeas=&quot;RFC 5545&quot;/&gt;, and associated protocols, in order to enhance the structured communication and execution of tasks. The enhancements allow for the communication, time planning and scheduling of tasks by and between automated systems (e.g. taxi dispatch systems, in smart power grids, business process management systems) as well as for human centered tasks.&lt;/p&gt;
+&lt;p id=&quot;_a42c5c82-84f1-d84f-8644-2590066546c2&quot;&gt;This document specifies extensions to the existing Internet Calendaring and Scheduling Core Object Specification (iCalendar) &lt;eref type=&quot;inline&quot; bibitemid=&quot;RFC5545&quot; citeas=&quot;RFC 5545&quot;/&gt;, and associated protocols, in order to enhance the structured communication and execution of tasks. The enhancements allow for the communication, time planning and scheduling of tasks by and between automated systems (e.g. taxi dispatch systems, in smart power grids (see  &lt;eref type=&quot;inline&quot; bibitemid=&quot;WsCalendar&quot; citeas=&quot;WsCalendar&quot;/&gt;), business process management systems) as well as for human centered tasks.&lt;/p&gt;
 
 &lt;p id=&quot;_661d834c-cd2d-1845-81bd-5378fdcb0bee&quot;&gt;A &quot;task&quot; is a representation of an item of work assigned to an individual or organization. In the iCalendar Object Model &lt;eref type=&quot;inline&quot; bibitemid=&quot;RFC5545&quot; citeas=&quot;RFC 5545&quot;/&gt; the representation of tasks is by &quot;VTODO&quot; calendar components. Tasks can be identified in a number of situations, either informally as ad-hoc tasks in personal &quot;to-do&quot; lists or more formally in: Business processes - ranging from repetitive workflows to adaptive cases and trouble ticketing Project Management - whether for large scale construction projects or collaborative software development&lt;/p&gt;</pre></td><td>2</td></tr>
 <tr class="severity2">
@@ -61,14 +64,14 @@ thead th { font-weight: bold; background-color: aqua; }
 
 &lt;dl id=&quot;_b9bfc80d-f4e6-beaf-872c-4f7b061cf496&quot;&gt; &lt;dt&gt;Task type&lt;/dt&gt;</pre></td><td>2</td></tr>
 <tr class="severity2">
-<td>001044</td><th><code><a href='sources/draft-ietf-calext-ical-tasks.html#caldav-support'>caldav-support</a></code></th>
+<td>001056</td><th><code><a href='sources/draft-ietf-calext-ical-tasks.html#caldav-support'>caldav-support</a></code></th>
 <td>Hanging paragraph in clause</td><td><pre>&lt;clause id=&quot;caldav-support&quot; inline-header=&quot;false&quot; obligation=&quot;normative&quot;&gt;
 &lt;title&gt;CalDAV Support for Task Mode&lt;/title&gt;
 &lt;p id=&quot;_5e249cbf-b084-7f8b-7a5f-a16d5e7267e1&quot;&gt;The CalDAV &lt;eref type=&quot;inline&quot; bibitemid=&quot;RFC4791&quot; citeas=&quot;RFC 4791&quot;/&gt; calendar access protocol allows clients and servers to exchange iCalendar data. With the introduction of the &quot;TASK-MODE&quot; property in this specification, different automated task management behaviours may be delegated to the server by the Task Organizer depending upon the value of &quot;TASK-MODE&quot;.&lt;/p&gt;
 
 &lt;p id=&quot;_a99e3c6f-a9f1-9dd3-9326-7b19ab1e9f68&quot;&gt;In order for a CalDAV client to know what task modes are available, a CalDAV server advertises a CALDAV:supported-task-mode-set WebDAV property on calendar home or calendar collections if it supports the use of the &quot;TASK-MODE&quot; property as described in this specification.  The server can advertise a specific set of supported task modes by including one or more CALDAV:supported-task-mode XML elements within the CALDAV:supported-task-mode-set XML element.&lt;/p&gt;</pre></td><td>2</td></tr>
 <tr class="severity2">
-<td>001106</td><th><code><a href='sources/draft-ietf-calext-ical-tasks.html#_new_and_updated_icalendar_elements_registration'>_new_and_​updated_​icalendar_​elements_​registration</a></code></th>
+<td>001118</td><th><code><a href='sources/draft-ietf-calext-ical-tasks.html#_new_and_updated_icalendar_elements_registration'>_new_and_​updated_​icalendar_​elements_​registration</a></code></th>
 <td>Hanging paragraph in clause</td><td><pre>&lt;clause id=&quot;_new_and_updated_icalendar_elements_registration&quot; inline-header=&quot;false&quot; obligation=&quot;normative&quot;&gt;
 &lt;title&gt;New and updated iCalendar Elements Registration&lt;/title&gt;
 &lt;p id=&quot;_8cff9d3c-52f3-961b-6812-ea92760acc44&quot;&gt;This specification updates &lt;eref type=&quot;inline&quot; bibitemid=&quot;RFC5545&quot; citeas=&quot;RFC 5545&quot;/&gt; by adding and updating a number of elements according to the procedures and templates specified in &lt;eref type=&quot;inline&quot; bibitemid=&quot;RFC5545&quot; citeas=&quot;RFC 5545&quot;&gt; &lt;localityStack&gt; &lt;locality type=&quot;section&quot;&gt; &lt;referenceFrom&gt;8.2&lt;/referenceFrom&gt; &lt;/locality&gt; &lt;/localityStack&gt; &lt;/eref&gt;.&lt;/p&gt;
