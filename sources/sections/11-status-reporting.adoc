@@ -25,7 +25,7 @@ END:VSTATUS
 === Comments associated to reasons and status changes
 
 Multiple comments and reasons may have the same status. As situations
-change further "VSTATUS" calendar components can be added to provide additional
+change, further "VSTATUS" calendar components can be added to provide additional
 information.
 
 [source]
@@ -54,13 +54,23 @@ END:VSTATUS
 Note that the "VSTATUS" calendar component is not intended to be used as a history
 of changes to a tasks properties. The purpose of the "VSTATUS"
 calendar component is only to document changes related to fulfilling
-the tasks
+the tasks.
+
+=== Updating the overall status
+Only the Task Organizer, or the server acting as the Organizers proxy,
+may change or add "VSTATUS" calendar components and the "STATUS" property.
+
+The overall VSTATUS will be changed in response to incoming Attendee replies. Each change of the overall VSTATUS MUST be accompanied by a change to the STATUS.
+
+Note there is no defined ordering of properties and components so the
+DTSTAMP property SHOULD be set for each VSTATUS component to preserve ordering.
 
 [[attendee-participant]]
 === Relating reason and comments to "ATTENDEE" property status changes.
 
 The <<RFC9073>> "PARTICIPANT" calendar component can be used to provide additional
-information about why an "ATTENDEE" property participation status has changed.
+information about why an "ATTENDEE" property participation status has changed
+following the guidelines set out in <<RFC9073, section=7.1>>.
 The "COMMENT" property can also
 be used to include additional human-readable information about why the
 associated "STATUS" or "ATTENDEE" property changed. For example, if a driver

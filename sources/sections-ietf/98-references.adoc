@@ -31,6 +31,14 @@ span:title[_CalConnect, Task Architecture V1.0_],
 span:uri.src[https://www.calconnect.org/architectures/Task%20Architecture%201.0.pdf].
 span:type[book]
 
+* [[[WsCalendar,nofetch(WsCalendar)]]],
+span:surname[Considine], span:initials[T.],
+span:surname[Douglass], span:initials[M.],
+span:title[_WS-Calendar Version 1.0_],
+span:date[2011],
+span:uri.src[https://docs.oasis-open.org/ws-calendar/ws-calendar-spec/v1.0/cs01/ws-calendar-spec-v1.0-cs01.pdf].
+span:type[book]
+
 * [[[WfRP,nofetch(WfRP)]]],
 span:surname[Russell], span:initials[N.],
 span:surname[ter Hofstede], span:initials[A.H.M.],

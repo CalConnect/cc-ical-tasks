@@ -257,7 +257,7 @@ Internet-Draft        Task Extensions to iCalendar            March 2025
    Observer  A calendar user interested in a calendar component, e.g., a
       manager may have interest in all tasks that have not been
       completed.  Often represented as an "Attendee" with the "role"
-      paramdeter set to the value "NON-PARTICIPANT".
+      parameter set to the value "NON-PARTICIPANT".
 
    Resource  A resource in the scheduling context is any shared entity
       that can be scheduled by a calendar user, but does not control its

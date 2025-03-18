@@ -26,7 +26,7 @@ or published free/busy information. It is an "Organizer" who invites "Attendees"
 Observer::
 A calendar user interested in a calendar component, e.g., a manager may
 have interest in all tasks that have not been completed. Often represented as
-an "Attendee" with the "role" paramdeter set to the value "NON-PARTICIPANT".
+an "Attendee" with the "role" parameter set to NON-PARTICIPANT.
 
 Resource::
 A resource in the scheduling context is any shared entity that can
