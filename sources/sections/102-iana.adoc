@@ -1,46 +1,108 @@
 
 [#iana]
 == IANA Considerations
+=== Component Registrations
 
-=== New and updated iCalendar Elements Registration
+This document defines the following new iCalendar component to be
+added to the Components registry
+defined in <<RFC5545, section=8.3.1>> and located here: <https://www.iana.org/assignments/icalendar#components>.
 
-This specification updates <<RFC5545>> by adding and updating
-a number of elements according to the procedures and templates specified in
-<<RFC5545, section=8.2>>.
-
-==== Update of the Status registry
-
-This specification updates the Status registry defined in <<draft-ietf-calext-subscription-upgrade>>
-with additional values defined in this document.
-
-.Updated Status Value Registry
+.Addition to the Components Registry
 [cols="a,a,a",options=header]
 |===
-| Value    | Status  | Reference
+| Component           | Status  | Reference
 
-| PENDING   | Current | This Spec, <<prop-ext-status>>
-| FAILED    | Current | This Spec, <<prop-ext-status>>
+| VSTATUS | Current | This Spec, <<vstatus>>
 
 |===
 
-==== Sub-State value registry
+=== Property Registrations
 
-The following table has been used to initialize the Sub-State registry.
+This document defines the following new iCalendar properties to be
+added to the Properties registry
+defined in <<RFC5545, section=8.3.2>> and located here: <https://www.iana.org/assignments/icalendar>.
 
-.Sub-State registry
+.Additions to the Properties Registry
+[cols="a,a,a",options=header]
+|===
+| Property           | Status  | Reference
+
+| ESTIMATED-DURATION | Current | This Spec, <<prop-estimated-duration>>
+| REASON    | Current | This Spec, <<prop-reason>>
+| SUBSTATE  | Current | This Spec, <<prop-substate>>
+| STATUS             | Current | This Spec, <<prop-ext-status>>
+| TASK-MODE          | Current | This Spec, <<prop-task-mode>>
+
+|===
+
+=== Initialization of the Status Value registry
+
+This document creates a new iCalendar registry for values of the
+"STATUS" property defined in <<RFC5545, section=3.8.1.11>> and
+located here: <https://www.iana.org/assignments/icalendar#status-values>
+
+Additional values MAY be used, provided the process described in
+Section 8.2.1 of [RFC5545] is used to register them, using the
+template in Section 8.2.6 of [RFC5545].
+
+The following table has been used to initialize the Status Value
+Registry.
+
+.Initial Status Value Registry
+[cols="a,a,a",options=header]
+|===
+| Name          | Status | Reference
+
+| CANCELLED    | Current | <<RFC5545, section=3.8.1.11>>
+| COMPLETED    | Current | <<RFC5545, section=3.8.1.11>>
+| CONFIRMED    | Current | <<RFC5545, section=3.8.1.11>>
+| DRAFT        | Current | <<RFC5545, section=3.8.1.11>>
+| FAILED    | Current | This Spec, <<prop-ext-status>>
+| FINAL        | Current | <<RFC5545, section=3.8.1.11>>
+| IN-PROCESS   | Current | <<RFC5545, section=3.8.1.11>>
+| NEEDS-ACTION | Current | <<RFC5545, section=3.8.1.11>>
+| PENDING   | Current | This Spec, <<prop-ext-status>>
+| TENTATIVE    | Current | <<RFC5545, section=3.8.1.11>>
+
+|===
+
+=== Substate Value registry
+
+
+This document creates a new iCalendar registry for values of the
+"SUBSTATE" property defined in <<prop-substate>> and
+located here: <https://www.iana.org/assignments/icalendar#substate-values>
+
+Additional values MAY be used, provided the process described in
+Section 8.2.1 of [RFC5545] is used to register them, using the
+template in Section 8.2.6 of [RFC5545].
+
+The following table has been used to initialize the Substate Value
+Registry.
+
+.Initial Substate Value registry
 [cols="a,a,a",options=header]
 |===
 | Substate  | Status  | Reference
 
-| OK        | Current | This Spec, <<prop-sub-state>>
-| ERROR     | Current | This Spec, <<prop-sub-state>>
-| SUSPENDED | Current | This Spec, <<prop-sub-state>>
+| OK        | Current | This Spec, <<prop-substate>>
+| ERROR     | Current | This Spec, <<prop-substate>>
+| SUSPENDED | Current | This Spec, <<prop-substate>>
 
 |===
 
-==== Task Mode value registry
+=== Task Mode Value registry
 
-The following table has been used to initialize the Task Mode registry.
+This document creates a new iCalendar registry for values of the
+"TASK-MODE" property defined in <<prop-task-mode>> and
+located here: <https://www.iana.org/assignments/icalendar#task-mode-values>
+
+Additional values MAY be used, provided the process described in
+Section 8.2.1 of [RFC5545] is used to register them, using the
+template in Section 8.2.6 of [RFC5545].
+
+The following table has been used to initialize the Task Mode Value
+Registry.
 
 .Task Mode Value Registry
 [cols="a,a,a",options=header]
@@ -55,9 +117,11 @@ The following table has been used to initialize the Task Mode registry.
 
 |===
 
-==== Participation Statuses registry
+=== Participation Statuses registry
 
-The following table has been used to update the Participation Statuses registry defined in <<RFC5545, section=8.3.7>> and located here: <https://www.iana.org/assignments/icalendar>
+This document defines the following new iCalendar participation status
+to be added to the registry defined in Section 8.3.7 of [RFC5545] and
+located here: <https://www.iana.org/assignments/icalendar#participation-statuses>
 
 .Participation Statuses Registry
 [cols="a,a,a",options=header]
@@ -68,34 +132,3 @@ The following table has been used to update the Participation Statuses registry 
 
 |===
 
-==== Components Registry
-
-The following table has been used to update the Components registry
-defined in <<RFC5545, section=8.3.1>> and located here: <https://www.iana.org/assignments/icalendar>.
-
-.Updated Components Registry
-[cols="a,a,a",options=header]
-|===
-| Component           | Status  | Reference
-
-| VSTATUS | Current | This Spec, <<vstatus>>
-
-|===
-
-==== Properties registry
-
-The following table has been used to update the Properties registry
-defined in <<RFC5545, section=8.3.2>> and located here: <https://www.iana.org/assignments/icalendar>.
-
-.Updated Properties Registry
-[cols="a,a,a",options=header]
-|===
-| Property           | Status  | Reference
-
-| ESTIMATED-DURATION | Current | This Spec, <<prop-estimated-duration>>
-| REASON    | Current | This Spec, <<prop-reason>>
-| SUBSTATE  | Current | This Spec, <<prop-sub-state>>
-| STATUS             | Current | This Spec, <<prop-ext-status>>
-| TASK-MODE          | Current | This Spec, <<prop-task-mode>>
-
-|===

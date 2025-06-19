@@ -75,8 +75,8 @@ REASON:https://example.com/reason/delivered-on-time
 
 ----
 
-[[prop-sub-state]]
-=== Sub-State
+[[prop-substate]]
+=== Substate
 
 Property name:: SUBSTATE
 
@@ -107,12 +107,12 @@ substatevalue       = ("OK"        ; everything is fine(the default)
                      / iana-token) ; Other IANA-registered type
 ----
 
-Description:: The sub-state property allows additional qualification
+Description:: The substate property allows additional qualification
 and granularity of states to be recorded, in particular for the
-IN-PROCESS state. It allows individual sub-states to be recorded
-without the need to define and publish a sub-task associated with a
+IN-PROCESS state. It allows individual substates to be recorded
+without the need to define and publish a subtask associated with a
 parent task purely to track that a particular state has been reached.
-This property also allows parallel states to be expressed e.g. that a
+This property also allows parallel states to be expressed, e.g. that a
 task has been suspended at whatever state it has reached.
 
 Example::
