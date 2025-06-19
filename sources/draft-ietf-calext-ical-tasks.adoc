@@ -1,6 +1,6 @@
 = Task Extensions to iCalendar
 :doctype: internet-draft
-:docnumber: draft-ietf-calext-ical-tasks-13
+:docnumber: draft-ietf-calext-ical-tasks-14
 :status: standard
 :ipr: trust200902
 :consensus: true
@@ -8,7 +8,7 @@
 :submission-type: IETF
 :area: Internet
 :intended-series: full-standard
-:revdate: 2025-03-17
+:revdate: 2025-06-18
 :fullname: Adrian Apthorp
 :lastname: Apthorp
 :forename_initials: A.
@@ -32,7 +32,7 @@
 :email_2: mdouglass@bedework.com
 :mn-document-class: ietf
 :mn-output-extensions: xml,txt,html
-:workgroup: calext
+:workgroup: calsify
 :technical-committee: TC Calendar
 
 include::sections/00-abstract.adoc[]
