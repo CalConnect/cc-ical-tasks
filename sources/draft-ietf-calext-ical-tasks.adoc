@@ -8,7 +8,7 @@
 :submission-type: IETF
 :area: Internet
 :intended-series: full-standard
-:revdate: 2025-06-18
+:revdate: 2025-07-07
 :fullname: Adrian Apthorp
 :lastname: Apthorp
 :forename_initials: A.
