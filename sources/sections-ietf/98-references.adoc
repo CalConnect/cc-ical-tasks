@@ -23,7 +23,7 @@ span:surname[Apthorp], span:initials[A.],
 span:surname[Daboo], span:initials[C.],
 span:surname[Douglass], span:initials[M.],
 span:title[_CalConnect, Task Architecture V1.0_],
-span:uri.src[https://www.calconnect.org/architectures/Task%20Architecture%201.0.pdf].
+span:uri.src[https://www.calconnect.org/docs/architectures/Task%20Architecture%201.0.pdf].
 span:type[book]
 
 * [[[WsCalendar,nofetch(WsCalendar)]]],
