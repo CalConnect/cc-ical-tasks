@@ -37,9 +37,7 @@ defined in <<RFC5545, section=8.3.2>> and located here: <https://www.iana.org/as
 
 === Initialization of the Status Value registry
 
-This document creates a new iCalendar registry for values of the
-"STATUS" property defined in <<RFC5545, section=3.8.1.11>> and
-located here: <https://www.iana.org/assignments/icalendar#status-values>
+This document requests creation of a new iCalendar registry called "STATUS Values" for values of the "STATUS" property defined in <<RFC5545, section=3.8.1.11>>.
 
 Additional values MAY be used, provided the process described in
 Section 8.2.1 of [RFC5545] is used to register them, using the
@@ -68,10 +66,7 @@ Registry.
 
 === Substate Value registry
 
-
-This document creates a new iCalendar registry for values of the
-"SUBSTATE" property defined in <<prop-substate>> and
-located here: <https://www.iana.org/assignments/icalendar#substate-values>
+This document requests creation of a new iCalendar registry called "SUBSTATE Values" for values of the "SUBSTATE" property defined in <<prop-substate>>.
 
 Additional values MAY be used, provided the process described in
 Section 8.2.1 of [RFC5545] is used to register them, using the
@@ -93,9 +88,7 @@ Registry.
 
 === Task Mode Value registry
 
-This document creates a new iCalendar registry for values of the
-"TASK-MODE" property defined in <<prop-task-mode>> and
-located here: <https://www.iana.org/assignments/icalendar#task-mode-values>
+This document requests creation of a new iCalendar registry called "TASK-MODE Values" for values of the "TASK-MODE" property defined in <<prop-task-mode>>.
 
 Additional values MAY be used, provided the process described in
 Section 8.2.1 of [RFC5545] is used to register them, using the
