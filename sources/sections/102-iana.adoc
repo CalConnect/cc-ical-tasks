@@ -119,7 +119,7 @@ located here: <https://www.iana.org/assignments/icalendar#participation-statuses
 .Participation Statuses Registry
 [cols="a,a,a",options=header]
 |===
-| Value    | Status  | Reference
+| Participation Status | Status  | Reference
 
 | FAILED    | Current | This Spec, <<param-val-partstat>>
 
