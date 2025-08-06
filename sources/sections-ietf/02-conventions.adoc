@@ -7,6 +7,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL",
 interpreted as described in BCP 14 <<RFC2119>> <<RFC8174>> when, and
 only when, they appear in all capitals, as shown here.
 
+The notation used in this memo to (re-)define iCalendar elements is the ABNF notation of <<RFC5234>> as used by <<RFC5545>>. Any syntax elements shown below that are not explicitly defined in this specification come from iCalendar <<RFC5545>>.
+
 Calendaring and scheduling roles are referred to in quoted-strings of
 text with the first character of each word in upper case.  For
 example, "Organizer" refers to a role of a "Calendar User" (CU)
