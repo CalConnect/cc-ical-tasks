@@ -1,7 +1,7 @@
 
 == Introduction
 
-This document specifies extensions to the existing Internet Calendaring and Scheduling Core Object Specification (iCalendar) <<RFC5545>>, and associated protocols, in order to enhance the structured communication and execution of tasks. The enhancements allow for the communication, time planning and scheduling of tasks by and between automated systems (e.g. taxi dispatch systems,
+This document specifies extensions to the Internet Calendaring and Scheduling Core Object Specification (iCalendar) <<RFC5545>>, and associated protocols, in order to enhance the structured communication and execution of tasks. The enhancements allow for the communication, time planning and scheduling of tasks by and between automated systems (e.g. taxi dispatch systems,
 in smart power grids (see <<WsCalendar>>), business process management systems) as well as for human centered tasks.
 
 A "task" is a representation of an item of work assigned to an individual or organization. In the iCalendar Object Model <<RFC5545>> the representation of tasks is by "VTODO" calendar components. Tasks can be identified in a number of situations, either informally as ad-hoc tasks in personal "to-do" lists or more formally in:
@@ -12,11 +12,11 @@ The extensions specified in this document enhance and standardize the following:
 
  The specification of tasks:: how a task type is defined and the relationships between tasks See <<task-specification>>.
 
- Their planning and scheduling:: Improved specification of deadlines and
-estimated time. See <<deadlines>>
+ Task planning and scheduling:: Improved specification of deadlines and
+estimated time for completion. See <<deadlines>>
 
- Task assignment, and status reporting:: The addition of VSTATUS,
-see <<modifications-to-calendar-components>> allows for more detailed
+ Task assignment and status reporting:: The addition of VSTATUS,
+(<<modifications-to-calendar-components>>) allows for more detailed
 reports. See <<status-reporting>>.
 
 These extensions are defined within the context of an overall architecture for task calendaring and scheduling, which elaborates that supported by <<RFC5545>> and related standards.
