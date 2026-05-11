@@ -1,0 +1,4 @@
+documents:
+  - source: sources/cc-11001.adoc
+  - source: sources/draft-apthorp-ical-tasks.adoc
+  - source: sources/draft-ietf-calext-ical-tasks.adoc
