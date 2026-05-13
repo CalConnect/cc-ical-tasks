@@ -1,0 +1,5 @@
+# .metanorma/channels.yml — cc-ical-tasks
+
+channels:
+  - name: public/standards
+    description: "CalConnect documents from cc-ical-tasks"
